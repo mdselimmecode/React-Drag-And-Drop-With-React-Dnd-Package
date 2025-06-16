@@ -34,8 +34,8 @@ const CreateTask = ({ setTasks }) => {
 
 
     return (
-        <div onSubmit={handleTaskFormSubmit}>
-            <h1 className="mb-3">Create Task</h1>
+        <div className="my-8" onSubmit={handleTaskFormSubmit}>
+            <h1 className="mb-2">Create Task</h1>
             <form>
                 <input value={task.name} type="text" onChange={(e) => setTask({ ...task, id: uuidv4(), name: e.target.value })} placeholder="Write your task" className="border-2 rounded-md mr-4 w-64 py-2 px-2 border-slate-400 bg-slate-100" />
                 <button className="bg-cyan-500 rounded-md px-4 py-3 text-white">Create</button>
