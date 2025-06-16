@@ -1,7 +1,17 @@
+import { useDrag } from "react-dnd";
 import toast from "react-hot-toast";
 
 
 const Task = ({ task, setTasks, tasks }) => {
+
+    const [{ isDragging }, drag] = useDrag(() => ({
+        type: "task",
+        item: { id: task.id },
+        collect: (monitor) => ({
+            isDragging: !!monitor.isDragging()
+        })
+    }));
+
 
     const handleDeleteTask = id => {
         try {
@@ -15,7 +25,7 @@ const Task = ({ task, setTasks, tasks }) => {
     }
 
     return (
-        <div className="p-5 mt-8 shadow-lg rounded-md cursor-grab">
+        <div ref={drag} className={`p-5 mt-8 shadow-xl bg-white rounded-md cursor-grab ${isDragging ? "opacity-25" : "opacity-100"}`}>
             <p className="mb-3 text-base font-medium">{task.name}</p>
             <div className="flex justify-between mt-5 rounded-lg">
                 <button onClick={() => handleDeleteTask(task.id)} className="bg-[#00C951] px-4 py-2 cursor-pointer text-base rounded-md text-white">

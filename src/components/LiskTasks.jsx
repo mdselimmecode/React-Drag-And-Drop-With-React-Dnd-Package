@@ -3,7 +3,10 @@ import TodosSection from "./TodosSection";
 
 
 
+
 const LiskTasks = ({ tasks, setTasks }) => {
+
+
 
     const [todos, setTodos] = useState([]);
     const [inProgress, setInProgress] = useState([]);
@@ -31,7 +34,9 @@ const LiskTasks = ({ tasks, setTasks }) => {
                     completed={completed}
                     tasks={tasks}
                     setTasks={setTasks}
-                    status={st} key={idx}></TodosSection>)
+                    status={st}
+                    key={idx}
+                ></TodosSection>)
             }
         </div>
     );
