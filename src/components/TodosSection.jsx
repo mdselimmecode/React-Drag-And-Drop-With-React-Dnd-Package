@@ -40,7 +40,7 @@ const TodosSection = ({ status, inProgress, todos, completed, tasks, setTasks })
                 return tk;
             });
             localStorage.setItem("tasks", JSON.stringify(modifyTask));
-            toast.success(`Task status is ${status}`)
+            toast.success(`Task status is ${status}`);
             return modifyTask;
         })
     };

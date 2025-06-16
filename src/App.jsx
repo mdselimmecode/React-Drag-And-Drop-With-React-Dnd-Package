@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 import CreateTask from './components/CreateTask'
 import LiskTasks from './components/LiskTasks'
 import { Toaster } from 'react-hot-toast';
-import { DndProvider } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
+import { TouchBackend } from 'react-dnd-touch-backend';
+import BothDeviceDndProvider from './components/BothDeviceDndProvider';
 
 
 function App() {
@@ -23,16 +23,16 @@ function App() {
 
 
   return (
-    <DndProvider backend={HTML5Backend}>
+    <BothDeviceDndProvider backend={TouchBackend}>
       <Toaster />
-      <div className='bg-slate-100 max-w-screen min-h-screen flex flex-col items-center gap-16 pt-4'>
-        <h1 className='text-center text-3xl font-semibold'>Drag And Drop Task Todo</h1>
+      <div className='bg-slate-100 max-w-screen min-h-screen flex flex-col items-center pt-4'>
+        <h1 className='text-center sm:text-lg md:text-3xl font-semibold mt-5'>Drag And Drop Task Todo</h1>
         <CreateTask tasks={tasks} setTasks={setTasks}></CreateTask>
 
         <LiskTasks tasks={tasks} setTasks={setTasks}></LiskTasks>
 
       </div>
-    </DndProvider>
+    </BothDeviceDndProvider>
   )
 }
 

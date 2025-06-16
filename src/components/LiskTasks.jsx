@@ -26,7 +26,7 @@ const LiskTasks = ({ tasks, setTasks }) => {
     const statuses = ["todo", "in_progress", "completed"];
 
     return (
-        <div className="container mx-auto grid grid-cols-3 gap-32">
+        <div className="container mx-auto grid sm:grid-cols-1 md:grid-cols-3 sm:mb-5 md:gap-32">
             {
                 statuses.map((st, idx) => <TodosSection
                     inProgress={inProgress}
